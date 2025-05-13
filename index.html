@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOI Citation Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- citeproc-js browser build -->
+    <script src="https://cdn.jsdelivr.net/gh/Juris-M/citeproc-js@master/citeproc.js"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-start justify-center p-4">
+    <div class="flex w-full max-w-6xl space-x-6">
+      <!-- Main content -->
+      <main class="flex-1 bg-white p-6 sm:p-8 rounded-xl shadow-2xl">
+        <header class="mb-6 text-center">
+          <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">
+            Medical Reference Citations
+          </h1>
+          <p class="text-sm text-gray-600 mt-1">
+            Enter a DOI to get its citation.
+          </p>
+        </header>
+
+        <!-- Format Select -->
+        <div class="space-y-16>
+          <label
+            for="styleSelect"
+            class="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Citation Format:
+          </label>
+          <select
+            id="styleSelect"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
+          >
+            <!-- loaded from citation_formats.json -->
+          </select>
+          <div id="formatInfo" class="format-info hidden"></div>
+        </div>
+
+        <div class="space-y-4">
+          <!-- DOI Input + Paste -->
+          <div>
+            <label
+              for="doiInput"
+              class="block text-sm font-medium text-gray-700 mb-1"
+            >
+              DOI (Digital Object Identifier):
+            </label>
+            <input
+              type="text"
+              id="doiInput"
+              placeholder="E.g., https://doi.org/10.xxx/xxxxxx or 10.xxx/xxxxxx"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
+            />
+            <div class="mt-2 text-left">
+              <button
+                id="pasteButton"
+                class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm py-1 px-3 rounded"
+              >
+                Paste from clipboard
+              </button>
+            </div>
+          </div>
+
+          <!-- Generate Button -->
+          <button
+            id="generateButton"
+            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 px-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition duration-150"
+          >
+            Generate Citation
+          </button>
+        </div>
+
+        <div id="messageArea" class="hidden space-y-6">Messages</div>
+
+        <!-- Outputs + Copy Buttons -->
+        <div class="mt-8 space-y-6">
+          <!-- Formatted Citation -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">
+              Formatted Citation:
+            </h2>
+            <div id="formattedCitationOutput" class="output-area">
+              Enter a DOI.
+            </div>
+            <div class="mt-2 text-left">
+              <button
+                id="copyCitationButton"
+                class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm py-1 px-3 rounded"
+              >
+                Copy to clipboard
+              </button>
+            </div>
+          </div>
+
+          <!-- BibTeX -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">BibTeX:</h2>
+            <div id="bibtexOutput" class="output-area">BibTeX format.</div>
+          </div>
+        </div>
+      </main>
+
+      <!-- History panel -->
+      <aside
+        id="historyPanel"
+        class="flex flex-col p-4 bg-gray-50 border border-gray-200 rounded-lg h-[80vh]"
+        style="width: 32rem"
+      >
+        <h2 class="text-lg font-semibold mb-2">History</h2>
+
+        <!-- Scrollable history list -->
+        <div class="flex-1 overflow-y-auto mb-4">
+          <ul id="historyList" class="text-sm text-gray-700"></ul>
+        </div>
+
+        <!-- Buttons fixed below -->
+        <div class="flex flex-wrap gap-2">
+          <button
+            id="exportHistoryButton"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
+          >
+            Export
+          </button>
+          <button
+            id="copyHistoryButton"
+            class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
+          >
+            Copy
+          </button>
+          <button
+            id="sortHistoryButton"
+            class="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded"
+          >
+            Sort
+          </button>
+          <button
+            id="clearHistoryButton"
+            class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
+          >
+            Clear
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+  </body>
+</html>

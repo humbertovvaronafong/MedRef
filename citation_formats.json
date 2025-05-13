@@ -1,0 +1,60 @@
+{
+  "formats": [
+        {
+      "id": "ama",
+      "name": "AMA",
+      "cslId": "american-medical-association",
+      "description": "Used in medical publications",
+      "example": "Lastname AA, Lastname BB, Lastname CC. Title of the article. Name of the Journal. Year;volume(number):pages. doi:xx.xxxx/xxxxx"
+    },
+    {
+      "id": "iso690",
+      "name": "ISO 690",
+      "cslId": "iso690-author-date-en",
+      "description": "International standard for bibliographic references",
+      "example": "LASTNAME, Firstname, LASTNAME, Firstname and LASTNAME, Firstname, year. Title of the article. Name of the Journal. Vol. X, no. X, pp. XX-XX. https://doi.org/xx.xxxx/xxxxx "
+    },
+    {
+      "id": "vancouver",
+      "name": "Vancouver",
+      "cslId": "vancouver",
+      "description": "Used in medicine and health sciences",
+      "example": "Author AA, Author BB, Author CC. Title of the article. Name of the journal. Year;volume(number):pages. doi: xx.xxxx/xxxxx"
+    },
+    {
+      "id": "apa",
+      "name": "APA",
+      "cslId": "apa",
+      "description": "Widely used format in social sciences",
+      "example": "Author, A. A., Author, B. B., & Author, C. C. (Year). Title of the article. Name of the Journal, volume(number), pages. https://doi.org/xx.xxxx/xxxxx "
+    },
+    {
+      "id": "mla",
+      "name": "MLA",
+      "cslId": "modern-language-association",
+      "description": "Commonly used in humanities, literature and linguistics",
+      "example": "Lastname, Firstname. \"Title of the Article.\" Name of the Journal, vol. X, no. X, Year, pp. XX-XX. DOI or URL."
+    },
+    {
+      "id": "harvard",
+      "name": "Harvard",
+      "cslId": "harvard-cite-them-right",
+      "description": "British and Australian universities",
+      "example": "Lastname, Initial. (Year) 'Title of the article', Name of the Journal, volume(number), pages. doi: xx.xxxx/xxxxx"
+    },
+    {
+      "id": "abnt-general",
+      "name": "ABNT",
+      "cslId": "associacao-brasileira-de-normas-tecnicas",
+      "description": "General ABNT format",
+      "example": "LASTNAME, Firstname; LASTNAME, Firstname. Title of the article. Name of the journal, City, v. X, n. X, p. XX-XX, month. year."
+    },
+    {
+      "id": "chicago-author-date",
+      "name": "Chicago",
+      "cslId": "chicago-author-date",
+      "description": "Used in history and some social sciences",
+      "example": "Lastname, Firstname. Year. \"Title of the Article.\" Name of the Journal volume(number): pages. https://doi.org/xx.xxxx/xxxxx "
+    }
+  ]
+}
